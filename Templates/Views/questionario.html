@@ -28,11 +28,6 @@
             </ul>  
         </div>
 
-        <!--
-        <div class="user-box"> 
-            <span>Usuário: Agiota da Leste</span>
-        </div>
-        -->
         
         <label class="modo_escuro">
             <input checked="checked" type="checkbox" id="sistema_modoEscuro">
@@ -48,8 +43,8 @@
     <div class="star-background"></div>
 
     
-    <h2>QUESTIONARIO</h2>
-    <h3>- Queremos ouvir a sua opnião -</h3>
+    <h2 style="color: white;">QUESTIONARIO</h2>
+    <h3 style="color: white;">- Queremos ouvir a sua opnião -</h3>
 
     <div class="grupos_questionario">
         <table>
@@ -62,7 +57,7 @@
                 <th>Muito Bom</th>
             </tr>
             <tr>
-                <td>Qual a sua Satisfação com as obras</td>
+                <td style="color: white;">Qual a sua Satisfação com as obras</td>
                 <td><input type="radio" name="obras" value="1"></td>
                 <td><input type="radio" name="obras" value="2"></td>
                 <td><input type="radio" name="obras" value="3"></td>
@@ -70,7 +65,7 @@
                 <td><input type="radio" name="obras" value="5"></td>
             </tr>
             <tr>
-                <td>Qual a sua Satisfação com o local</td>
+                <td style="color: white;">Qual a sua Satisfação com o local</td>
                 <td><input type="radio" name="local" value="1"></td>
                 <td><input type="radio" name="local" value="2"></td>
                 <td><input type="radio" name="local" value="3"></td>
@@ -78,7 +73,7 @@
                 <td><input type="radio" name="local" value="5"></td>
             </tr>
             <tr>
-                <td>Qual a sua Satisfação com os funcionários</td>
+                <td style="color: white;">Qual a sua Satisfação com os funcionários</td>
                 <td><input type="radio" name="funcionarios" value="1"></td>
                 <td><input type="radio" name="funcionarios" value="2"></td>
                 <td><input type="radio" name="funcionarios" value="3"></td>
@@ -86,7 +81,7 @@
                 <td><input type="radio" name="funcionarios" value="5"></td>
             </tr>
             <tr>
-                <td>Satisfação com a organização do local</td>
+                <td style="color: white;">Satisfação com a organização do local</td>
                 <td><input type="radio" name="organizacao" value="1"></td>
                 <td><input type="radio" name="organizacao" value="2"></td>
                 <td><input type="radio" name="organizacao" value="3"></td>
@@ -94,7 +89,7 @@
                 <td><input type="radio" name="organizacao" value="5"></td>
             </tr>
             <tr>
-                <td>Satisfação com a experiencia do Museu</td>
+                <td style="color: white;">Satisfação com a experiencia do Museu</td>
                 <td><input type="radio" name="satis" value="1"></td>
                 <td><input type="radio" name="satis" value="2"></td>
                 <td><input type="radio" name="satis" value="3"></td>
@@ -103,16 +98,108 @@
             </tr>
         </table>
         
-    </div>
-    
-
-    
+    </div>    
 
     <div class="form-group">
-        <textarea placeholder="TEM ALGUMA SUGESTÃO?"></textarea>
+        <textarea id="suggestion-input" placeholder="TEM ALGUMA SUGESTÃO?"></textarea>
     </div>
     <button class="Botao_Questionario" type="submit">Enviar</button>
 </div>
+
+<!-- Virtual Keyboard -->
+<div id="virtual-keyboard">
+    <!-- Primeira linha -->
+    <div class="keyboard-row">
+        <div class="keyboard-key">Q</div>
+        <div class="keyboard-key">W</div>
+        <div class="keyboard-key">E</div>
+        <div class="keyboard-key">R</div>
+        <div class="keyboard-key">T</div>
+        <div class="keyboard-key">Y</div>
+        <div class="keyboard-key">U</div>
+        <div class="keyboard-key">I</div>
+        <div class="keyboard-key">O</div>
+        <div class="keyboard-key">P</div>
+    </div>
+    <!-- Segunda linha -->
+    <div class="keyboard-row" style="margin-left: 20px;">
+        <div class="keyboard-key">A</div>
+        <div class="keyboard-key">S</div>
+        <div class="keyboard-key">D</div>
+        <div class="keyboard-key">F</div>
+        <div class="keyboard-key">G</div>
+        <div class="keyboard-key">H</div>
+        <div class="keyboard-key">J</div>
+        <div class="keyboard-key">K</div>
+        <div class="keyboard-key">L</div>
+        <div class="keyboard-key keyboard-special">⌫</div>
+    </div>
+    <!-- Terceira linha -->
+    <div class="keyboard-row" style="margin-left: 40px;">
+        <div class="keyboard-key">.</div>
+        <div class="keyboard-key">Z</div>
+        <div class="keyboard-key">X</div>
+        <div class="keyboard-key">C</div>
+        <div class="keyboard-key">V</div>
+        <div class="keyboard-key">B</div>
+        <div class="keyboard-key">N</div>
+        <div class="keyboard-key">M</div>
+        <div class="keyboard-key">@</div>
+    </div>
+    <!-- Linha de espaço -->
+    <div class="keyboard-row">
+        <div class="keyboard-key" style="width: 20%; margin-left: 0%;">&nbsp;</div> <!-- Espaço -->
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const keyboard = document.getElementById('virtual-keyboard');
+    const suggestionInput = document.getElementById('suggestion-input');
+    let activeInput = null;
+
+    // Show keyboard when input is focused
+    function showKeyboard(input) {
+        activeInput = input;
+        keyboard.style.display = 'block';
+    }
+
+    suggestionInput.addEventListener('focus', () => showKeyboard(suggestionInput));
+
+    // Close keyboard when clicking outside
+    document.addEventListener('click', function (event) {
+        if (!keyboard.contains(event.target) && event.target !== suggestionInput) {
+            keyboard.style.display = 'none';
+            activeInput = null;
+        }
+    });
+
+    // Prevent event propagation to avoid immediate closing
+    keyboard.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+
+    // Keyboard key click handlers
+    const keys = document.querySelectorAll('.keyboard-key');
+    keys.forEach(key => {
+        key.addEventListener('click', function () {
+            if (!activeInput) return;
+
+            const keyText = this.textContent;
+
+            switch (keyText) {
+                case '⌫':
+                    activeInput.value = activeInput.value.slice(0, -1);
+                    break;
+                default:
+                    activeInput.value += keyText;
+                    break;
+            }
+        });
+    });
+});
+
+</script>
 
 <!-- Footer aqui -->
 
