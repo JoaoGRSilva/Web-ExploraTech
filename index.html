@@ -21,7 +21,7 @@
                     <input class="mobile-menu-checkbox" type="checkbox" id="mobile-menu-checkbox" />
             <label class="mobile-menu-icon" for="mobile-menu-checkbox"><span class="hamburger-icon"></span></label>
             <ul class="navigation-menu">
-                <li><a href="/index.html" title="Home" class="Selecao_Button">HOME</a></li>
+                <li><a href="index.html" title="Home" class="Selecao_Button">HOME</a></li>
                 <li><a href="Templates/sobre.html" title="Sobre">SOBRE</a></li>
                 <li><a href="Templates/obras.html" title="Artigos">OBRAS</a></li>
                 <li><a href="Templates/faq.html" title="Contato">CONTATOS</a></li>
@@ -35,41 +35,20 @@
               </label>
     </header>
 
-    <!--
-    
-    <header class="header">
-     
-        <div class="ExploraTec"> 
-            
-                <a href="/index.html"> <img src="/Image/Logo_ExploraTech/LogoExploraTech01.png" class="ExploraTec_Logo"> </a>
-            
-            </div>
-
-        <nav class="LucasRandom">
-            <a href="/index.html"  class="Selecao_Button">HOME</a>
-            <a href="/Templates/sobre.html">SOBRE</a>
-            <a href="/Templates/obras.html">OBRAS</a>
-            <a href="/Templates/faq.html">FAQ</a>
-        </nav>
-          
-    </header>
-
--->
-
     <section class="sessao_obras">
         <div class="nossas_obras"> ALGUMAS DE NOSSAS OBRAS:</div>
 
         <div class="carrossel_obras_museu">
 
-            <div class="obras_museu" style="background-image: url('Image/Obras/ObrasAgiota\ 06.jpg');">
-                <h3>Carro Espacial</h3>
-                <a href="Templates/Views/ob_carroLunar.html" class="Botao_Lucas">SAIBA MAIS</a> 
+            <div class="obras_museu" style="background-image: url('Image/Obras/ObrasAgiota 06.jpg');">
+                <h3>Perseverance Rover</h3>
+                <a href="Templates/Views/ob_PerseveranceRover.html" class="Botao_Lucas">SAIBA MAIS</a> 
             </div> 
             <div class="obras_museu" style="background-image: url('Image/Obras/ObrasAgiota\ 01.gif');">
-                <h3>Perseverance Rover</h3>
-                <a href="Templates/Views/ob_roverPerseverance.html" class="Botao_Lucas">SAIBA MAIS</a>
+                <h3>Helicóptero Ingenuity</h3>
+                <a href="Templates/Views/ob_helicopteroingenuity.html" class="Botao_Lucas">SAIBA MAIS</a>
             </div>
-            <div class="obras_museu" style="background-image: url('Image/Obras/ObrasAgiota\ 04.jpg');">
+            <div class="obras_museu" style="background-image: url('Image/Obras/Gateway.png');">
                 <h3>Estação Espacial</h3>
                 <a href="Templates/Views/ob_estacaoEspacial.html" class="Botao_Lucas">SAIBA MAIS</a>
             </div>
@@ -78,21 +57,64 @@
     </section>
      
     <section class="mars-section">
-
         <img class="Fundo-Marte" src="Image/Marte/Marte 08.jpg" alt="Fundo-Marte">
-
-
         <div class="form-container">
-            <h2> QUESTIONÁRIO </h2>
-            <p>Preencha as informações abaixo para prosseguir. </p>
-            <input type="text" placeholder="Nome">
-            <input type="email" placeholder="Email">
+            <h2 style="color: white"> QUESTIONÁRIO </h2>
+            <p style="color: white">Preencha as informações abaixo para prosseguir. </p>
+            <input type="text" placeholder="Nome" id="name-input">
+            <input type="email" placeholder="Email" id="email-input">
             <button class="Botao_Formulario"><a href="Templates/Views/questionario.html" class="botao_quest">Seguinte</a> </button>
         </div>
     </section>
- pare
 
- <section class="museu_ingressos">
+
+<!-- Virtual Keyboard -->
+<div id="virtual-keyboard">
+    <!-- Primeira linha -->
+    <div class="keyboard-row">
+        <div class="keyboard-key">Q</div>
+        <div class="keyboard-key">W</div>
+        <div class="keyboard-key">E</div>
+        <div class="keyboard-key">R</div>
+        <div class="keyboard-key">T</div>
+        <div class="keyboard-key">Y</div>
+        <div class="keyboard-key">U</div>
+        <div class="keyboard-key">I</div>
+        <div class="keyboard-key">O</div>
+        <div class="keyboard-key">P</div>
+    </div>
+    <!-- Segunda linha -->
+    <div class="keyboard-row" style="margin-left: 20px;">
+        <div class="keyboard-key">A</div>
+        <div class="keyboard-key">S</div>
+        <div class="keyboard-key">D</div>
+        <div class="keyboard-key">F</div>
+        <div class="keyboard-key">G</div>
+        <div class="keyboard-key">H</div>
+        <div class="keyboard-key">J</div>
+        <div class="keyboard-key">K</div>
+        <div class="keyboard-key">L</div>
+        <div class="keyboard-key keyboard-special">⌫</div>
+    </div>
+    <!-- Terceira linha -->
+    <div class="keyboard-row" style="margin-left: 40px;">
+        <div class="keyboard-key">.</div>
+        <div class="keyboard-key">Z</div>
+        <div class="keyboard-key">X</div>
+        <div class="keyboard-key">C</div>
+        <div class="keyboard-key">V</div>
+        <div class="keyboard-key">B</div>
+        <div class="keyboard-key">N</div>
+        <div class="keyboard-key">M</div>
+        <div class="keyboard-key">@</div>
+    </div>
+    <!-- Linha de espaço -->
+    <div class="keyboard-row">
+        <div class="keyboard-key" style="width: 20%; margin-left: 0%;">&nbsp;</div> <!-- Espaço -->
+    </div>
+</div>
+
+<section class="museu_ingressos">
     <div class="aviso_ingresso">
         <h1>COMPRE OS SEUS INGRESSOS AQUI!</h1>
         <p>BILHETERIA EM FUNCIONAMENTO <br> A PARTIR DAS 9:30 DA MANHÃ!</p>
@@ -100,9 +122,61 @@
             <img src="Image/Icones/ingressos.png" alt="Ícone" style="width: 20px; height: 20px; vertical-align: middle;">
             INGRESSOS ONLINE AQUI!
         </button>
-        
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const keyboard = document.getElementById('virtual-keyboard');
+            const nameInput = document.getElementById('name-input');
+            const emailInput = document.getElementById('email-input');
+            let activeInput = null;
+    
+            // Show keyboard when input is focused
+            function showKeyboard(input) {
+                activeInput = input;
+                keyboard.style.display = 'block';
+            }
+    
+            nameInput.addEventListener('focus', () => showKeyboard(nameInput));
+            emailInput.addEventListener('focus', () => showKeyboard(emailInput));
+    
+            // Close keyboard when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!keyboard.contains(event.target) &&
+                    event.target !== nameInput &&
+                    event.target !== emailInput) {
+                    keyboard.style.display = 'none';
+                    activeInput = null;
+                }
+            });
+    
+            // Prevent event propagation to avoid immediate closing
+            keyboard.addEventListener('click', function(event) {
+                event.stopPropagation();
+            });
+    
+            // Keyboard key click handlers
+            const keys = document.querySelectorAll('.keyboard-key');
+            keys.forEach(key => {
+                key.addEventListener('click', function() {
+                    if (!activeInput) return;
+    
+                    const keyText = this.textContent;
+    
+                    switch (keyText) {
+                        case '⌫':
+                            activeInput.value = activeInput.value.slice(0, -1);
+                            break;
+                        default:
+                            activeInput.value += keyText;
+                            break;
+                    }
+                });
+            });
+        });
+    </script>
 </section>
+
 
     <!-- Footer -->
 
